@@ -1,0 +1,97 @@
+// $background-color: #eceded;
+// $content-background-color: #d1d7d7;
+$background-color: #d1d7d7;
+$content-background-color: #eceded;
+
+$menu-background-color: #384348;
+$text-color: #c4dbe9;
+$link-color: #c4dbe9; 
+$font: 'Arial';
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: $background-color;
+  margin: 0;
+  height: 100%;
+  > div {
+    height: 100%;
+  }
+}
+
+.app {
+  height: 100vh;
+  min-width: 850px;
+  min-height: 660px;
+  margin: 0 auto;
+  max-width: 1275px;
+  font-family: $font;
+  color: $text-color;
+}
+
+.menuContainer {
+  padding: 25px;
+  background-color: $menu-background-color;
+  border-right: 2px solid $text-color;
+  border-left: 2px solid $text-color;
+  font-size: 14px;
+  a {
+    margin: 10px 0;
+    color: $link-color;
+    
+    &:hover {
+      color: $text-color;
+      opacity: 0.7;
+    }
+  }
+  .languages {
+    margin-bottom: 10px;
+  }
+
+  .about {
+    border-bottom: solid $link-color;
+    border-top: solid $link-color;
+    border-width: thin;
+    padding: 10px 0;
+    margin: 10px 0;
+    white-space: pre;
+  }
+  .contactInfo {
+    border-bottom: solid $link-color;
+    border-top: solid $link-color;
+    border-width: thin;
+    padding: 10px 0;
+    margin: 10px 0;
+    white-space: pre;
+    line-height: 20px;
+    > *{
+      margin: 0;
+      padding:0;
+    }
+    > a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  .socialLinks a {
+    font-size: 30px;
+    margin: 5px;
+    padding: 5px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+.contentContainer {
+  background-color: $content-background-color;
+  padding: 25px;
+  overflow : scroll;
+}
+
+.logo {
+  margin-top: 50px;
+  height: 80px;
+}
