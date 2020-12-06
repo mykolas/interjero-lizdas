@@ -47,9 +47,9 @@ const webpackConfig = async (env): Promise<Configuration> => ({
         ]
     },
     plugins: [
-        // new CopyWebpackPlugin(
-        //     { patterns: [{ from: './public/assets', to: 'assets' }] }
-        // ),
+        new CopyWebpackPlugin(
+            { patterns: [{ from: './public', to: path.join(__dirname, '/dist') }] }
+        ),
 
         new RelayCompilerWebpackPlugin({
             schema: path.resolve(__dirname, './graphql/schema.graphql'), // or schema.json
