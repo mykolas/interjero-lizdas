@@ -7,6 +7,7 @@ interface FlexProps {
     flexGrow?: Property.FlexGrow
     justifyContent?: Property.JustifyContent
     alignSelf?: Property.AlignSelf
+    alignContent?: Property.AlignContent
     className?: string
     style?: CSSProperties
 }

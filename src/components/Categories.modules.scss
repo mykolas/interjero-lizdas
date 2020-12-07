@@ -9,6 +9,12 @@
     }
 
     a.active {
-        opacity: 0.7;
+        opacity: 0.5;
     }
 }
+
+@media screen and (max-width:850px) {
+    .categories {
+      margin-top: initial;
+    }
+  }

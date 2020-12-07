@@ -25,7 +25,14 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images}) => {
             >
                 {images.map(({asset}, index) => (
                     <CarouselItem key={index}>
-                        <img src={asset?.url + `?h=${Math.floor(window.innerHeight)}`} />
+                        <img
+                            src={
+                                asset?.url +
+                                `?h=${Math.floor(window.innerHeight)}&w=${Math.floor(
+                                    window.innerWidth
+                                )}`
+                            }
+                        />
                     </CarouselItem>
                 ))}
             </Carousel>
