@@ -5,7 +5,9 @@ import styles from "./Projects.module.scss"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const Carousel = lazy(() =>
-    import("react-responsive-carousel").then(({Carousel}) => ({default: Carousel}))
+    import(/* webpackPrefetch: true */ "react-responsive-carousel").then(({Carousel}) => ({
+        default: Carousel
+    }))
 )
 
 interface IProjectCarousel {
@@ -32,9 +34,7 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images}) => {
                         <img
                             src={
                                 asset?.url +
-                                `?h=${Math.floor(window.innerHeight)}&w=${Math.floor(
-                                    window.innerWidth
-                                )}`
+                                `?h=${window.innerHeight}&w=${window.innerWidth}&fm=webp`
                             }
                         />
                     </CarouselItem>
@@ -46,7 +46,7 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images}) => {
             className={styles.thumbnail}
             width={Math.min(0.4 * window.innerWidth, 200)}
             height={Math.min(0.4 * window.innerWidth, 200)}
-            src={images[0]?.asset?.url + "?h=400&w=400"}
+            src={images[0]?.asset?.url + "?h=400&w=400&fm=webp"}
             onClick={() => setCarouselVisible(true)}
         />
     )
