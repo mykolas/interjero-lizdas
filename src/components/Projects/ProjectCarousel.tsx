@@ -21,6 +21,9 @@ interface IProjectCarousel {
 const ProjectCarousel: React.FC<IProjectCarousel> = ({images}) => {
     const [isCarouselVisible, setCarouselVisible] = useState(false)
 
+    const thumbHeight = Math.min(Math.floor(0.4 * window.innerWidth), 200)
+    const thumbWidth = Math.min(Math.floor(0.4 * window.innerWidth), 200)
+
     return isCarouselVisible ? (
         <Modal onClose={() => setCarouselVisible(false)}>
             <Carousel
@@ -44,9 +47,9 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images}) => {
     ) : (
         <img
             className={styles.thumbnail}
-            width={Math.min(0.4 * window.innerWidth, 200)}
-            height={Math.min(0.4 * window.innerWidth, 200)}
-            src={images[0]?.asset?.url + "?h=400&w=400&fm=webp"}
+            width={thumbHeight}
+            height={thumbWidth}
+            src={images[0]?.asset?.url + `?h=${thumbHeight * 2}&w=${thumbWidth * 2}&fm=webp`}
             onClick={() => setCarouselVisible(true)}
         />
     )
