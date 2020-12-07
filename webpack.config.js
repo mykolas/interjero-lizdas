@@ -44,7 +44,10 @@ const webpackConfig = async (env, argv) => {
         },
         plugins: [
             new CopyWebpackPlugin({
-                patterns: [{from: "./public/_redirects", to: path.join(__dirname, "/dist")}]
+                patterns: [
+                    {from: "./public/_redirects", to: path.join(__dirname, "/dist")},
+                    {from: "./public/robots.txt", to: path.join(__dirname, "/dist")},
+                ]
             }),
             new HtmlWebpackPlugin({
                 template: "./public/index.html"
