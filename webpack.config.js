@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 const {TsconfigPathsPlugin} = require("tsconfig-paths-webpack-plugin")
-const RelayCompilerWebpackPlugin = require("relay-compiler-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin");
+const { fetchData } = require("./fetch-data")
 
 const webpackConfig = async (env, argv) => {
     
@@ -39,11 +39,6 @@ const webpackConfig = async (env, argv) => {
                         transpileOnly: true
                     },
                     exclude: /dist/
-                },
-                {
-                    test: /\.tsx?$/,
-                    exclude: path.join(__dirname, "node_modules"),
-                    use: [{loader: "babel-loader"}]
                 }
             ]
         },
@@ -51,19 +46,14 @@ const webpackConfig = async (env, argv) => {
             new CopyWebpackPlugin({
                 patterns: [{from: "./public/_redirects", to: path.join(__dirname, "/dist")}]
             }),
-            new RelayCompilerWebpackPlugin({
-                schema: path.resolve(__dirname, "./graphql/schema.graphql"), // or schema.json
-                src: "./src",
-                extensions: ["js", "jsx", "ts", "tsx"],
-                artifactDirectory: "./src/__generated__"
-            }),
             new HtmlWebpackPlugin({
                 template: "./public/index.html"
             }),
             new webpack.DefinePlugin({
                 "process.env.PRODUCTION": env.production || !env.development,
                 "process.env.NAME": JSON.stringify(require("./package.json").name),
-                "process.env.VERSION": JSON.stringify(require("./package.json").version)
+                "process.env.VERSION": JSON.stringify(require("./package.json").version),
+                "window.DATA": JSON.stringify(await fetchData())
             }),
             new ForkTsCheckerWebpackPlugin({
                 eslint: {

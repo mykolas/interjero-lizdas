@@ -1,11 +1,10 @@
-import React, {Suspense, useEffect} from "react"
+import React, {useEffect} from "react"
 import ReactDOM from "react-dom"
 
 import Layout from "./Layout"
-import GraphQLProvider from "./GraphQLProvider"
 import {BrowserRouter} from "react-router-dom"
-import styles from "./App.module.scss"
 import debounce from "lodash.debounce"
+import styles from "./App.module.scss"
 
 const App = () => {
     useEffect(() => {
@@ -35,9 +34,12 @@ const App = () => {
 
             window.document.documentElement.style.setProperty(
                 "--menuMarginBottom",
-                `${menuMarginBottom}px`
+                `${Math.floor(menuMarginBottom)}px`
             )
-            window.document.documentElement.style.setProperty("--logoHeight", `${logoHeight}px`)
+            window.document.documentElement.style.setProperty(
+                "--logoHeight",
+                `${Math.floor(logoHeight)}px`
+            )
         }
 
         contentElement.addEventListener("scroll", scrollListener)
@@ -46,11 +48,9 @@ const App = () => {
     })
 
     return (
-        <GraphQLProvider>
-            <BrowserRouter>
-                <Layout />
-            </BrowserRouter>
-        </GraphQLProvider>
+        <BrowserRouter>
+            <Layout />
+        </BrowserRouter>
     )
 }
 

@@ -1,26 +1,12 @@
-import React, {Suspense} from "react"
-import {FlexCol} from "./shared/Flex"
-import {CategoriesQuery} from "./__generated__/CategoriesQuery.graphql"
+import React from "react"
 import {NavLink} from "react-router-dom"
-import DelayedLoader from "./shared/DelayedLoader"
 import styles from "./Categories.modules.scss"
-import {graphql, useLazyLoadQuery} from "react-relay/lib/hooks"
-
-const query = graphql`
-    query CategoriesQuery {
-        allCategory {
-            _id
-            name_lt
-            name_en
-        }
-    }
-`
+import {FlexCol} from "./shared/Flex"
 
 const Categories: React.SFC = () => {
-    const data = useLazyLoadQuery<CategoriesQuery>(query, {})
     return (
-        <>
-            {data.allCategory.map(({name_lt, _id}) => (
+        <FlexCol className={styles.categories} flexGrow={1}>
+            {window.DATA.data.allCategory.map(({name_lt, _id}) => (
                 <NavLink
                     key={_id}
                     to={{pathname: `/${name_lt}`, state: {categoryId: _id}}}
@@ -29,7 +15,7 @@ const Categories: React.SFC = () => {
                     {name_lt}
                 </NavLink>
             ))}
-        </>
+        </FlexCol>
     )
 }
 
