@@ -1,12 +1,13 @@
-import React, {Suspense} from "react"
+import React, {Suspense, lazy} from "react"
 import styles from "./App.module.scss"
 import {FlexRow, FlexCol} from "components/shared/Flex"
 import Projects from "components/Projects/Projects"
 import About from "components/About"
 import Logo from "components/Logo"
-import Categories from "components/Categories"
 import DelayedLoader from "components/shared/DelayedLoader"
 import Contacts from "components/Contacts"
+
+const Categories = lazy(() => import("components/Categories"))
 
 const Layout: React.FC = () => (
     <FlexRow alignSelf="center" className={styles.app}>
@@ -14,7 +15,11 @@ const Layout: React.FC = () => (
             {/* <LanguageSwitch /> */}
             <Logo />
             <About />
-            <Categories />
+            <FlexCol className={styles.categories} flexGrow={1}>
+                <Suspense fallback={<DelayedLoader delayInSeconds={1} />}>
+                    <Categories />
+                </Suspense>
+            </FlexCol>
             <Contacts />
         </FlexCol>
         <FlexRow

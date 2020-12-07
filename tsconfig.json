@@ -2,7 +2,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "noImplicitAny": false,
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
     "lib": [
       "esnext",
@@ -27,6 +27,6 @@
   },
   "include": [
     "./src",
-    "./webpack.config.ts"
+    "webpack.config.js"
   ]
 }

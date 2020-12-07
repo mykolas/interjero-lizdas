@@ -1,7 +1,6 @@
-import {RelayEnvironmentProvider} from "react-relay/hooks"
-import {Environment, Network, RecordSource, Store} from "relay-runtime"
-
 import React from "react"
+import {Environment, Network, RecordSource, Store} from "relay-runtime"
+import {RelayEnvironmentProvider} from "react-relay/lib/hooks"
 
 // your-app-name/src/fetchGraphQL.js
 async function fetchGraphQL(text, variables) {
@@ -24,7 +23,6 @@ async function fetchGraphQL(text, variables) {
 // Relay passes a "params" object with the query name and text. So we define a helper function
 // to call our fetchGraphQL utility with params.text.
 async function fetchRelay(params, variables) {
-    console.log(`fetching query ${params.name} with ${JSON.stringify(variables)}`)
     return fetchGraphQL(params.text, variables)
 }
 

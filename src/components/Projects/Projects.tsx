@@ -1,9 +1,8 @@
 import React from "react"
-import {graphql, useLazyLoadQuery} from "react-relay/hooks"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
 import ProjectCarousel from "./ProjectCarousel"
 import {ProjectsQuery} from "./__generated__/ProjectsQuery.graphql"
 import {Route, RouteProps} from "react-router-dom"
+import {graphql, useLazyLoadQuery} from "react-relay/lib/hooks"
 
 const query = graphql`
     query ProjectsQuery {
@@ -28,7 +27,7 @@ const getCategoryId = ({location}: RouteProps) =>
 const Projects: React.FC<RouteProps> = (props) => {
     const data = useLazyLoadQuery<ProjectsQuery>(query, {})
     const categoryId = getCategoryId(props)
-    console.log(props)
+
     return (
         <>
             {data.allProject

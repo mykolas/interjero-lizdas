@@ -1,10 +1,10 @@
 import React, {Suspense} from "react"
 import {FlexCol} from "./shared/Flex"
-import {useLazyLoadQuery, graphql} from "react-relay/hooks"
 import {CategoriesQuery} from "./__generated__/CategoriesQuery.graphql"
-import {Link, NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 import DelayedLoader from "./shared/DelayedLoader"
 import styles from "./Categories.modules.scss"
+import {graphql, useLazyLoadQuery} from "react-relay/lib/hooks"
 
 const query = graphql`
     query CategoriesQuery {
@@ -16,7 +16,7 @@ const query = graphql`
     }
 `
 
-const LazyCategories: React.SFC = () => {
+const Categories: React.SFC = () => {
     const data = useLazyLoadQuery<CategoriesQuery>(query, {})
     return (
         <>
@@ -30,16 +30,6 @@ const LazyCategories: React.SFC = () => {
                 </NavLink>
             ))}
         </>
-    )
-}
-
-const Categories: React.SFC = () => {
-    return (
-        <FlexCol className={styles.categories} flexGrow={1}>
-            <Suspense fallback={<DelayedLoader delayInSeconds={1} />}>
-                <LazyCategories />
-            </Suspense>
-        </FlexCol>
     )
 }
 
