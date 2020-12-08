@@ -14,11 +14,11 @@ const Contacts: React.SFC = () => (
         <FlexCol>
             Susisiekite:
             <a
-                href="tel:+3706624974"
+                href="tel:+37066234974"
                 onClick={() => trackPhoneClicked()}
                 onCopy={() => trackPhoneCopied()}
             >
-                +3706624974
+                +37066234974
             </a>
             <a
                 href="mailto:interjero.lizdas@gmail.com"
