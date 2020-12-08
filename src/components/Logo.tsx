@@ -1,10 +1,14 @@
 import React, {useCallback} from "react"
 import styles from "../App.module.scss"
 import {useHistory} from "react-router-dom"
+import {trackNavigation} from "src/analytics-events/event"
 
 const Logo: React.SFC = () => {
     const history = useHistory()
-    const handleOnClick = useCallback(() => history.push("/", {}), [history])
+    const handleOnClick = useCallback(() => {
+        trackNavigation("home")
+        history.push("/", {})
+    }, [history])
 
     return (
         <img

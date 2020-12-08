@@ -5,7 +5,7 @@ import styles from "../App.module.scss"
 const About: React.SFC = () => (
     <FlexRow className={styles.contactInfo}>
         {
-            "JAUKUMAS ESTETIKA UNIKALUMAS\nTai vieni iš kriterijjų, kuriais remiamės\nkurdami idealius namus Jums."
+            "JAUKUMAS ESTETIKA UNIKALUMAS\nTai vieni iš kriterijų, kuriais remiamės\nkurdami idealius namus Jums."
         }
     </FlexRow>
 )

@@ -12,8 +12,8 @@ const Projects: React.FC<RouteProps> = (props) => {
         <>
             {window.DATA.data.allProject
                 .filter(({category}) => !categoryId || categoryId === category?._id)
-                .map(({images}, index) => (
-                    <ProjectCarousel key={index} images={images} />
+                .map(({images, name_lt}, index) => (
+                    <ProjectCarousel key={index} images={images} name={name_lt} />
                 ))}
         </>
     )

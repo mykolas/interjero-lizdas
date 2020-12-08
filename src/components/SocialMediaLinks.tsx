@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from "react"
 import {FlexRow} from "./shared/Flex"
 import styles from "../App.module.scss"
+import {trackSocialLink} from "src/analytics-events/event"
 
 const Instagram = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,10 +36,18 @@ const Facebook = () => (
 
 const SocialMediaLinks: React.SFC = () => (
     <FlexRow className={styles.socialLinks} justifyContent="center">
-        <a href="https://www.facebook.com/interjerolizdas/">
+        <a
+            href="https://www.facebook.com/interjerolizdas/"
+            target="_blank"
+            onClick={() => trackSocialLink("facebook")}
+        >
             <Facebook />
         </a>
-        <a href="https://www.instagram.com/interjerolizdas/">
+        <a
+            href="https://www.instagram.com/interjerolizdas/"
+            target="_blank"
+            onClick={() => trackSocialLink("instagram")}
+        >
             <Instagram />
         </a>
     </FlexRow>

@@ -10,6 +10,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/gtag.js": "^0.0.3",
     "@types/node": "^14.14.10",
     "@types/node-sass": "^4.11.1",
     "@types/react": "^17.0.0",
