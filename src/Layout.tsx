@@ -1,10 +1,9 @@
-import React, {Suspense} from "react"
+import React from "react"
 import styles from "./App.module.scss"
 import {FlexRow, FlexCol} from "components/shared/Flex"
 import Projects from "components/Projects/Projects"
 import About from "components/About"
 import Logo from "components/Logo"
-import DelayedLoader from "components/shared/DelayedLoader"
 import Contacts from "components/Contacts"
 import Categories from "components/Categories"
 
@@ -23,9 +22,7 @@ const Layout: React.FC = () => {
                 alignContent="start"
                 flexWrap="wrap"
             >
-                <Suspense fallback={<DelayedLoader delayInSeconds={1} />}>
-                    <Projects />
-                </Suspense>
+                <Projects />
             </FlexRow>
         </FlexRow>
     )

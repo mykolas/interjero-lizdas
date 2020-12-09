@@ -1,17 +1,13 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import styles from "./DelayedLoader.module.scss"
+import {useDelayedVisibility} from "./hooks/useDelayedVisibility"
 
 interface IDelayedLoader {
-    delayInSeconds: number
+    delayInMilliseconds: number
 }
 
-const DelayedLoader: React.FC<IDelayedLoader> = ({delayInSeconds}) => {
-    const [isVisible, setVisible] = useState(false)
-
-    useEffect(() => {
-        const timeout = setTimeout(() => setVisible(true), delayInSeconds * 1000)
-        return () => clearTimeout(timeout)
-    })
+const DelayedLoader: React.FC<IDelayedLoader> = ({delayInMilliseconds}) => {
+    const isVisible = useDelayedVisibility(delayInMilliseconds)
 
     return (
         <>
