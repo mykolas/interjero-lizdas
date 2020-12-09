@@ -18,21 +18,26 @@ interface IProjectCarousel {
         readonly asset: {
             readonly url: string
         }
+        readonly caption_lt?: string
+        readonly caption_en?: string
     }>
     name: string
 }
 
 const CarouselImageItem = ({
     url,
+    alt,
     delayInMilliseconds
 }: {
     url?: string
+    alt?: string
     delayInMilliseconds: number
 }) => (
     <CarouselItem>
         {url && (
             <DelayedImage
                 delayInMilliseconds={delayInMilliseconds}
+                alt={alt}
                 src={
                     url +
                     `?h=${Math.floor(window.innerHeight * 1.5)}&w=${Math.floor(
@@ -57,6 +62,7 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
                 width={thumbHeight}
                 height={thumbWidth}
                 src={images[0]?.asset?.url + `?h=${thumbHeight * 2}&w=${thumbWidth * 2}&fm=webp`}
+                alt={images[0]?.caption_lt}
                 onClick={() => {
                     trackCarousel(name)
                     setCarouselVisible(true)
@@ -71,10 +77,11 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
                             useKeyboardArrows={true}
                             swipeable={true}
                         >
-                            {images.map(({asset}, index) => (
+                            {images.map(({asset, caption_lt}, index) => (
                                 <CarouselImageItem
                                     key={index}
                                     url={asset?.url}
+                                    alt={caption_lt}
                                     delayInMilliseconds={index * 100}
                                 />
                             ))}

@@ -36,6 +36,8 @@ const query = `
                 asset {
                     url
                 }
+                caption_en
+                caption_lt
             }
         }
     }
