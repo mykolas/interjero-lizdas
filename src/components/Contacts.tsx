@@ -1,5 +1,5 @@
 import React from "react"
-import {FlexRow, FlexCol} from "./shared/Flex"
+import {FlexCol} from "./shared/Flex"
 import styles from "../App.module.scss"
 import SocialMediaLinks from "./SocialMediaLinks"
 import {
