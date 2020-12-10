@@ -1,18 +1,12 @@
-import React, {lazy, Suspense, useEffect} from "react"
+import React, {useEffect} from "react"
 import Modal from "components/shared/Modal"
 import CarouselItem from "./CarouselItem"
 import styles from "./Projects.module.scss"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
 import {trackCarousel} from "src/analytics-events/event"
-import DelayedLoader from "components/shared/DelayedLoader"
 import DelayedImage from "components/shared/DelayedImage"
 import {useHistory} from "react-router-dom"
-
-const Carousel = lazy(() =>
-    import(/* webpackPrefetch: true */ "react-responsive-carousel").then(({Carousel}) => ({
-        default: Carousel
-    }))
-)
+import {Carousel} from "react-responsive-carousel"
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 interface IProjectCarousel {
     readonly images: ReadonlyArray<{
@@ -84,7 +78,10 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
                 className={styles.thumbnail}
                 width={thumbHeight}
                 height={thumbWidth}
-                src={images[0]?.asset?.url + `?h=${thumbHeight * 2}&w=${thumbWidth * 2}&fm=webp`}
+                src={
+                    images[0]?.asset?.url +
+                    `?h=${Math.floor(thumbHeight * 1.5)}&w=${Math.floor(thumbWidth * 1.5)}&fm=webp`
+                }
                 alt={images[0]?.caption_lt}
                 onClick={() => {
                     trackCarousel(name)
@@ -93,23 +90,21 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
             />
             {isCarouselVisible && (
                 <Modal onClose={() => makeCarouselVisible(false)}>
-                    <Suspense fallback={<DelayedLoader delayInMilliseconds={1000} />}>
-                        <Carousel
-                            showThumbs={false}
-                            showStatus={false}
-                            useKeyboardArrows={true}
-                            swipeable={true}
-                        >
-                            {images.map(({asset, caption_lt}, index) => (
-                                <CarouselImageItem
-                                    key={index}
-                                    url={asset?.url}
-                                    alt={caption_lt}
-                                    delayInMilliseconds={index * 100}
-                                />
-                            ))}
-                        </Carousel>
-                    </Suspense>
+                    <Carousel
+                        showThumbs={false}
+                        showStatus={false}
+                        useKeyboardArrows={true}
+                        swipeable={true}
+                    >
+                        {images.map(({asset, caption_lt}, index) => (
+                            <CarouselImageItem
+                                key={index}
+                                url={asset?.url}
+                                alt={caption_lt}
+                                delayInMilliseconds={index * 100}
+                            />
+                        ))}
+                    </Carousel>
                 </Modal>
             )}
         </>
