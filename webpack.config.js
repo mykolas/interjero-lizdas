@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 const {TsconfigPathsPlugin} = require("tsconfig-paths-webpack-plugin")
 const { fetchData } = require("./fetch-data")
+const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
 
 const webpackConfig = async (env, argv) => {
     
@@ -14,10 +15,10 @@ const webpackConfig = async (env, argv) => {
             extensions: [".ts", ".tsx", ".js"],
             plugins: [new TsconfigPathsPlugin()]
         },
-        output: {
-            path: path.join(__dirname, "/dist"),
-            filename: "main.bundle.js"
-        },
+        // output: {
+        //     path: path.join(__dirname, "/dist"),
+        //     filename: "main.bundle.js"
+        // },
         module: {
             rules: [
                 {
@@ -62,7 +63,8 @@ const webpackConfig = async (env, argv) => {
                 eslint: {
                     files: "./src/**/*.{ts,tsx,js,jsx}" // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
                 }
-            })
+            }),
+            new HtmlInlineScriptPlugin(),
         ],
         devServer: {
             historyApiFallback: true
