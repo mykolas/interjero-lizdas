@@ -43,7 +43,7 @@ const CarouselImageItem = ({
                     url +
                     `?h=${Math.floor(window.innerHeight * 1.5)}&w=${Math.floor(
                         window.innerWidth * 1.5
-                    )}&fm=webp`
+                    )}&fm=webp&fit=max&q=100`
                 }
             />
         )}
