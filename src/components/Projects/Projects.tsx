@@ -13,7 +13,12 @@ const Projects: React.FC<RouteProps> = (props) => {
             {window.DATA.data.allProject
                 .filter(({category}) => !categoryId || categoryId === category?._id)
                 .map(({images, name_lt}, index) => (
-                    <ProjectCarousel key={index} images={images} name={name_lt} />
+                    <ProjectCarousel
+                        key={index}
+                        images={images}
+                        name={name_lt}
+                        delay={(index % 4) * 50}
+                    />
                 ))}
         </>
     )

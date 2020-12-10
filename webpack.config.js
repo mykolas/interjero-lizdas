@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 const {TsconfigPathsPlugin} = require("tsconfig-paths-webpack-plugin")
-const TerserPlugin = require("terser-webpack-plugin");
 const { fetchData } = require("./fetch-data")
 
 const webpackConfig = async (env, argv) => {
@@ -17,7 +16,7 @@ const webpackConfig = async (env, argv) => {
         },
         output: {
             path: path.join(__dirname, "/dist"),
-            filename: "[name].bundle.js"
+            filename: "main.bundle.js"
         },
         module: {
             rules: [
@@ -68,21 +67,6 @@ const webpackConfig = async (env, argv) => {
         devServer: {
             historyApiFallback: true
         }
-    }
-
-
-    if (argv.mode === "production") {
-        config.mode = "production";
-        config.optimization = {
-            splitChunks: {
-                chunks: "all"
-            },
-            minimize: true,
-            usedExports: true,
-            minimizer: [
-                new TerserPlugin()
-            ]
-        };
     }
 
     return config;

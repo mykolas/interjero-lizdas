@@ -7,6 +7,7 @@ import DelayedImage from "components/shared/DelayedImage"
 import {useHistory} from "react-router-dom"
 import {Carousel} from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
+import LazyImage from "components/shared/DelayedImage"
 
 interface IProjectCarousel {
     readonly images: ReadonlyArray<{
@@ -17,6 +18,7 @@ interface IProjectCarousel {
         readonly caption_en?: string
     }>
     name: string
+    delay: number
 }
 
 const CarouselImageItem = ({
@@ -44,7 +46,7 @@ const CarouselImageItem = ({
     </CarouselItem>
 )
 
-const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
+const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name, delay}) => {
     const history = useHistory<{projectVisible?: string}>()
 
     const thumbHeight = Math.min(Math.floor(0.4 * window.innerWidth), 200)
@@ -74,7 +76,7 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
 
     return (
         <>
-            <img
+            <LazyImage
                 className={styles.thumbnail}
                 width={thumbHeight}
                 height={thumbWidth}
@@ -87,6 +89,7 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
                     trackCarousel(name)
                     makeCarouselVisible(true)
                 }}
+                delayInMilliseconds={delay}
             />
             {isCarouselVisible && (
                 <Modal onClose={() => makeCarouselVisible(false)}>
