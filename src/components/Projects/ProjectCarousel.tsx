@@ -1,4 +1,4 @@
-import React, {useState, lazy, Suspense} from "react"
+import React, {lazy, Suspense} from "react"
 import Modal from "components/shared/Modal"
 import CarouselItem from "./CarouselItem"
 import styles from "./Projects.module.scss"
@@ -6,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import {trackCarousel} from "src/analytics-events/event"
 import DelayedLoader from "components/shared/DelayedLoader"
 import DelayedImage from "components/shared/DelayedImage"
+import {useHistory} from "react-router-dom"
 
 const Carousel = lazy(() =>
     import(/* webpackPrefetch: true */ "react-responsive-carousel").then(({Carousel}) => ({
@@ -50,10 +51,18 @@ const CarouselImageItem = ({
 )
 
 const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
-    const [isCarouselVisible, setCarouselVisible] = useState(false)
+    const history = useHistory<{projectVisible?: string}>()
 
     const thumbHeight = Math.min(Math.floor(0.4 * window.innerWidth), 200)
     const thumbWidth = Math.min(Math.floor(0.4 * window.innerWidth), 200)
+
+    const makeCarouselVisible = (visible: boolean) =>
+        history.push(visible ? `${location.pathname}#${name}` : location.pathname, {
+            ...history.location.state,
+            projectVisible: visible ? name : undefined
+        })
+
+    const isCarouselVisible = history?.location?.state?.projectVisible === name
 
     return (
         <>
@@ -65,11 +74,11 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
                 alt={images[0]?.caption_lt}
                 onClick={() => {
                     trackCarousel(name)
-                    setCarouselVisible(true)
+                    makeCarouselVisible(true)
                 }}
             />
             {isCarouselVisible && (
-                <Modal onClose={() => setCarouselVisible(false)}>
+                <Modal onClose={() => makeCarouselVisible(false)}>
                     <Suspense fallback={<DelayedLoader delayInMilliseconds={1000} />}>
                         <Carousel
                             showThumbs={false}
