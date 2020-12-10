@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react"
+import React, {lazy, Suspense, useEffect} from "react"
 import Modal from "components/shared/Modal"
 import CarouselItem from "./CarouselItem"
 import styles from "./Projects.module.scss"
@@ -56,13 +56,27 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name}) => {
     const thumbHeight = Math.min(Math.floor(0.4 * window.innerWidth), 200)
     const thumbWidth = Math.min(Math.floor(0.4 * window.innerWidth), 200)
 
-    const makeCarouselVisible = (visible: boolean) =>
-        history.push(visible ? `${location.pathname}#${name}` : location.pathname, {
-            ...history.location.state,
-            projectVisible: visible ? name : undefined
-        })
+    const makeCarouselVisible = (visible: boolean) => {
+        const previousVisibleProject = history.location.state?.projectVisible
+        const projectVisible = visible ? name : undefined
+        const nextPath = visible ? `${location.pathname}#${name}` : location.pathname
+
+        if (previousVisibleProject === projectVisible) return
+
+        history.push(nextPath, {...history.location.state, projectVisible})
+    }
 
     const isCarouselVisible = history?.location?.state?.projectVisible === name
+
+    useEffect(() => {
+        const onOrientationChangeListener = () => {
+            makeCarouselVisible(false)
+        }
+        isCarouselVisible &&
+            window.addEventListener("orientationchange", onOrientationChangeListener)
+
+        return () => window.removeEventListener("orientationchange", onOrientationChangeListener)
+    })
 
     return (
         <>
