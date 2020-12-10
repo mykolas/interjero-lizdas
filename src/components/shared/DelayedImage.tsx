@@ -6,7 +6,7 @@ const LazyImage: React.FC<
 > = ({delayInMilliseconds, ...props}) => {
     const isVisible = useDelayedVisibility(delayInMilliseconds)
 
-    return isVisible && <img {...props} />
+    return isVisible && <img {...props} loading="lazy" />
 }
 
 export default LazyImage

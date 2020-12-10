@@ -90,6 +90,7 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name, delay}) => {
                     makeCarouselVisible(true)
                 }}
                 delayInMilliseconds={delay}
+                loading="lazy"
             />
             {isCarouselVisible && (
                 <Modal onClose={() => makeCarouselVisible(false)}>
