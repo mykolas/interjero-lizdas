@@ -13,6 +13,7 @@ interface IProjectCarousel {
     readonly images: ReadonlyArray<{
         readonly asset: {
             readonly url: string
+            readonly metadata?: {readonly lqip?: string}
         }
         readonly caption_lt?: string
         readonly caption_en?: string
@@ -24,11 +25,13 @@ interface IProjectCarousel {
 const CarouselImageItem = ({
     url,
     alt,
-    delayInMilliseconds
+    delayInMilliseconds,
+    lqip
 }: {
     url?: string
     alt?: string
     delayInMilliseconds: number
+    lqip: string
 }) => (
     <CarouselItem>
         {url && (
@@ -41,6 +44,7 @@ const CarouselImageItem = ({
                         window.innerWidth * 1.5
                     )}&fm=webp&fit=max&q=100`
                 }
+                lqip={lqip}
             />
         )}
     </CarouselItem>
@@ -91,6 +95,7 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name, delay}) => {
                 }}
                 delayInMilliseconds={delay}
                 loading="lazy"
+                lqip={images[0]?.asset?.metadata?.lqip}
             />
             {isCarouselVisible && (
                 <Modal onClose={() => makeCarouselVisible(false)}>
@@ -106,6 +111,7 @@ const ProjectCarousel: React.FC<IProjectCarousel> = ({images, name, delay}) => {
                                 url={asset?.url}
                                 alt={caption_lt}
                                 delayInMilliseconds={index * 100}
+                                lqip={asset?.metadata?.lqip}
                             />
                         ))}
                     </Carousel>

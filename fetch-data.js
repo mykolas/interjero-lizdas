@@ -35,6 +35,9 @@ const query = `
             images {
                 asset {
                     url
+                    metadata {
+                        lqip
+                    }
                 }
                 caption_en
                 caption_lt
