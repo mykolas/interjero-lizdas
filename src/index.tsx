@@ -8,6 +8,14 @@ import styles from "./App.module.scss"
 
 const App = () => {
     useEffect(() => {
+        const menuElement = window.document.getElementsByClassName(
+            styles.menuContainer
+        )[0] as HTMLElement
+        window.document.documentElement.style.setProperty(
+            "--menuHeight",
+            `${Math.floor(menuElement.clientHeight)}px`
+        )
+
         const resizeListener = debounce(() => {
             const vh = window.innerHeight * 0.01
             const vw = window.innerWidth * 0.01
@@ -18,33 +26,6 @@ const App = () => {
         window.addEventListener("resize", resizeListener)
 
         return () => window.removeEventListener("resize", resizeListener)
-    })
-
-    useEffect(() => {
-        const contentElement = window.document.getElementsByClassName(styles.contentContainer)[0]
-        const maxMarginBottom = 375
-        const originalLogoHeight = 50
-        const maxLogoHeight = 75
-        const logoDif = maxLogoHeight - originalLogoHeight
-
-        const scrollListener = () => {
-            const menuMarginBottom = Math.max(-maxMarginBottom, -contentElement.scrollTop)
-
-            const logoHeight = originalLogoHeight + (-menuMarginBottom / maxMarginBottom) * logoDif
-
-            window.document.documentElement.style.setProperty(
-                "--menuMarginBottom",
-                `${Math.floor(menuMarginBottom)}px`
-            )
-            window.document.documentElement.style.setProperty(
-                "--logoHeight",
-                `${Math.floor(logoHeight)}px`
-            )
-        }
-
-        contentElement.addEventListener("scroll", scrollListener)
-
-        return () => contentElement.removeEventListener("scroll", scrollListener)
     })
 
     return (

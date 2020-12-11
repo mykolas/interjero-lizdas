@@ -6,6 +6,8 @@ import About from "components/About"
 import Logo from "components/Logo"
 import Contacts from "components/Contacts"
 import Categories from "components/Categories"
+import {Route, Switch} from "react-router-dom"
+import ServicesAndPrices from "components/ServicesAndPrices"
 
 const Layout: React.FC = () => {
     return (
@@ -22,7 +24,10 @@ const Layout: React.FC = () => {
                 alignContent="start"
                 flexWrap="wrap"
             >
-                <Projects />
+                <Switch>
+                    <Route path="/Paslaugos" component={ServicesAndPrices} />
+                    <Route path="/" component={Projects} />
+                </Switch>
             </FlexRow>
         </FlexRow>
     )

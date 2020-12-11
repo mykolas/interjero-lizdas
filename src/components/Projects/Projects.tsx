@@ -1,6 +1,6 @@
 import React from "react"
 import ProjectCarousel from "./ProjectCarousel"
-import {Route, RouteProps} from "react-router-dom"
+import {RouteProps} from "react-router-dom"
 
 const getCategoryId = ({location}: RouteProps) =>
     (location.state as {categoryId: string})?.categoryId
@@ -24,6 +24,4 @@ const Projects: React.FC<RouteProps> = (props) => {
     )
 }
 
-const RoutedProjects: React.SFC = () => <Route component={Projects} />
-
-export default RoutedProjects
+export default Projects

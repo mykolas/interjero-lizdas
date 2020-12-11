@@ -6,6 +6,16 @@ $text-color: #c4dbe9;
 $link-color: #c4dbe9; 
 $font: 'Arial';
 
+.servicesAndPrices {
+  color: #384348;
+  li {
+    margin-top: 20px;
+  }
+  .servicesAndPricesTitle {
+    font-weight: bold;
+  }
+}
+
 html {
   height: 100%;
 }
@@ -96,7 +106,7 @@ body {
   overflow : scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  z-index: 10;
+  z-index: 100;
 }
 
 .contentContainer::-webkit-scrollbar {
@@ -127,8 +137,14 @@ body {
     padding: 0 25px;
     border: 0;
     margin-bottom: var(--menuMarginBottom);
+    position: fixed;
+    left: 0;
+    right: 0;
   }
   .contentContainer {
     padding: 10px;
+    margin-top: var(--menuHeight);
+    z-index: 100;
+    overflow : unset;
   }
 }

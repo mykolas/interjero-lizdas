@@ -7,6 +7,15 @@ import {trackNavigation} from "src/analytics-events/event"
 const Categories: React.SFC = () => {
     return (
         <FlexCol className={styles.categories} flexGrow={1}>
+            <NavLink
+                to={{pathname: `/Paslaugos`, state: {categoryId: undefined, link: "paslaugos"}}}
+                activeClassName={styles.active}
+                style={{textDecoration: "initial"}}
+                onClick={() => trackNavigation("paslaugos")}
+                className={styles.servicesLink}
+            >
+                Paslaugos
+            </NavLink>
             {window.DATA.data.allCategory.map(({name_lt, _id}) => (
                 <NavLink
                     key={_id}
