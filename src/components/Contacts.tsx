@@ -11,23 +11,20 @@ import {
 
 const Contacts: React.SFC = () => (
     <FlexCol className={styles.contactInfo}>
-        <FlexCol>
-            Susisiekite:
-            <a
-                href="tel:+37066234974"
-                onClick={() => trackPhoneClicked()}
-                onCopy={() => trackPhoneCopied()}
-            >
-                +37066234974
-            </a>
-            <a
-                href="mailto:interjero.lizdas@gmail.com"
-                onClick={() => trackEmailClicked()}
-                onCopy={() => trackEmailCopied()}
-            >
-                interjero.lizdas@gmail.com
-            </a>
-        </FlexCol>
+        <a
+            href="mailto:interjero.lizdas@gmail.com"
+            onClick={() => trackEmailClicked()}
+            onCopy={() => trackEmailCopied()}
+        >
+            interjero.lizdas@gmail.com
+        </a>
+        <a
+            href="tel:+37066234974"
+            onClick={() => trackPhoneClicked()}
+            onCopy={() => trackPhoneCopied()}
+        >
+            +37066234974
+        </a>
         <SocialMediaLinks />
     </FlexCol>
 )

@@ -22,9 +22,9 @@ const App = () => {
 
     useEffect(() => {
         const contentElement = window.document.getElementsByClassName(styles.contentContainer)[0]
-        const maxMarginBottom = 345
+        const maxMarginBottom = 375
         const originalLogoHeight = 50
-        const maxLogoHeight = 100
+        const maxLogoHeight = 75
         const logoDif = maxLogoHeight - originalLogoHeight
 
         const scrollListener = () => {

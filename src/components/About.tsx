@@ -3,7 +3,7 @@ import {FlexRow} from "./shared/Flex"
 import styles from "../App.module.scss"
 
 const About: React.SFC = () => (
-    <FlexRow className={styles.contactInfo}>
+    <FlexRow className={styles.about}>
         {
             "JAUKUMAS ESTETIKA UNIKALUMAS\nTai vieni iš kriterijų, kuriais remiamės\nkurdami idealius namus Jums."
         }

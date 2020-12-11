@@ -25,7 +25,7 @@ body {
   min-width: 850px;
   min-height: 660px;
   margin: 0 auto;
-  max-width: 1275px;
+  max-width: 1025px;
   font-family: $font;
   color: $text-color;
 }
@@ -52,11 +52,11 @@ body {
 
   .about {
     border-top: solid $link-color;
-    border-bottom: solid $link-color;
     border-width: thin;
     padding: 10px 0;
     margin: 10px 0;
     white-space: pre;
+    justify-content: center;
   }
   .contactInfo {
     border-top: solid $link-color;
@@ -66,6 +66,7 @@ body {
     white-space: pre;
     line-height: 20px;
     a {
+      height: 30px;
       margin: 0;
       padding:0;
       text-decoration: none;
@@ -76,8 +77,8 @@ body {
     margin-top: 10px;
     a {
       font-size: 30px;
-      margin: 5px;
-      padding: 5px;
+      margin: 0 5px;
+      padding: 0 5px;
       width: 30px;
       text-align: center;
       text-decoration: none;
@@ -116,14 +117,11 @@ body {
   .app {
     flex-direction: column!important;
     min-width: initial;
+    text-align: center;
   }
   .logo {
     margin-top: 25px;
     height: calc(var(--logoHeight));
-  }
-  .contactInfo {
-    flex-direction: row!important;
-    justify-content: space-between;
   }
   .menuContainer {
     padding: 0 25px;
