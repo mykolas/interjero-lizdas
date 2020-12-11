@@ -11,23 +11,20 @@ const ServicesAndPrices: React.FC = () => (
             </li>
             <li>
                 Interjero 3D modelio ir vizualizacijų kūrimas: vizualizacijos jau sukurtam interjero
+                konceptui. Kaina nuo 10 eur/kv m.
             </li>
             <li>
-                konceptui. Kaina nuo 10 eur/kv m. Apšvietimo ir jo priedų projektavimas.
-                Projektuojama jau
+                Apšvietimo ir jo priedų projektavimas. Projektuojama jau turint baldų planą. Kaina
+                nuo 6 eur/kv m.
             </li>
             <li>
-                turint baldų planą. Kaina nuo 6 eur/kv m. Virtuvės projektavimas: virtuvės projekto
+                Virtuvės projektavimas: virtuvės projekto paruošimas brėžiniai + vizualizacijos.
+                Kaina nuo 100 eur/vnt.
             </li>
             <li>
-                paruošimas brėžiniai + vizualizacijos. Kaina nuo 100 eur/vnt. Kitų korpusinių baldų
-            </li>
-            <li>
-                projektavimas: drabužinės, spintų, komodų ir kitų korpusinių baldų projektų
-                (brėžinių)
-            </li>
-            <li>
-                paruošimas. Esant poreikiui pateikiamos ir vizualizacijos. Kaina nuo 40 eur/vnt.
+                Kitų korpusinių baldų projektavimas: drabužinės, spintų, komodų ir kitų korpusinių
+                baldų projektų (brėžinių) paruošimas. Esant poreikiui pateikiamos ir vizualizacijos.
+                Kaina nuo 40 eur/vnt.
             </li>
         </ul>
     </div>
