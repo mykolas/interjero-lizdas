@@ -1,0 +1,17 @@
+@use '../../App.scss' as *;
+
+.contacts {
+    border-top: solid $link-color;
+    border-width: thin;
+    padding: 10px 0;
+    margin: 10px 0;
+    white-space: pre;
+    line-height: 20px;
+    a {
+        height: 30px;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,16 @@
+.socialLinks {
+    justify-content: center;
+    margin-top: 10px;
+    a {
+        font-size: 30px;
+        margin: 0 5px;
+        padding: 0 5px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        &:first {
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+}

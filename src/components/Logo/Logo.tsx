@@ -1,5 +1,5 @@
 import React, {useCallback} from "react"
-import styles from "../App.module.scss"
+import styles from "./Logo.modules.scss"
 import {useHistory} from "react-router-dom"
 import {trackNavigation} from "src/analytics-events/event"
 

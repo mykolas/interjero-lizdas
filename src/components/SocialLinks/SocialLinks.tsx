@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react"
-import {FlexRow} from "./shared/Flex"
-import styles from "../App.module.scss"
+import {FlexRow} from "../shared/Flex"
+import styles from "./SocialLinks.modules.scss"
 import {trackSocialLink} from "src/analytics-events/event"
 
 const Instagram = () => (
@@ -35,7 +35,7 @@ const Facebook = () => (
 )
 
 const SocialMediaLinks: React.SFC = () => (
-    <FlexRow className={styles.socialLinks} justifyContent="center">
+    <FlexRow className={styles.socialLinks}>
         <a
             href="https://www.facebook.com/interjerolizdas/"
             target="_blank"

@@ -1,0 +1,20 @@
+$background-color: #d1d7d7;
+$content-background-color: #eceded;
+
+$menu-background-color: #384348;
+$text-color: #c4dbe9;
+$link-color: #c4dbe9;
+$font: "Arial";
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: $background-color;
+    margin: 0;
+    height: 100%;
+    > div {
+        height: 100%;
+    }
+}

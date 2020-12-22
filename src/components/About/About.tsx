@@ -1,6 +1,6 @@
 import React from "react"
-import {FlexRow} from "./shared/Flex"
-import styles from "../App.module.scss"
+import {FlexRow} from "../shared/Flex"
+import styles from "./About.modules.scss"
 
 const About: React.SFC = () => (
     <FlexRow className={styles.about}>

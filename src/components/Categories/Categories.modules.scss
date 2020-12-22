@@ -1,7 +1,7 @@
 .categories {
+    flex-grow: 1;
     margin-top: 75px;
     a {
-
         text-transform: uppercase;
         text-decoration: none;
         cursor: pointer;
@@ -13,8 +13,8 @@
     }
 }
 
-@media screen and (max-width:850px) {
+@media screen and (max-width: 850px) {
     .categories {
-      margin-top: initial;
+        margin-top: initial;
     }
-  }
+}

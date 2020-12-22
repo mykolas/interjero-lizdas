@@ -1,7 +1,7 @@
 import React from "react"
-import {FlexCol} from "./shared/Flex"
-import styles from "../App.module.scss"
-import SocialMediaLinks from "./SocialMediaLinks"
+import {FlexCol} from "../shared/Flex"
+import styles from "./Contacts.modules.scss"
+import SocialMediaLinks from "../SocialLinks/SocialLinks"
 import {
     trackPhoneClicked,
     trackEmailClicked,
@@ -10,7 +10,7 @@ import {
 } from "src/analytics-events/event"
 
 const Contacts: React.SFC = () => (
-    <FlexCol className={styles.contactInfo}>
+    <FlexCol className={styles.contacts}>
         <a
             href="mailto:interjero.lizdas@gmail.com"
             onClick={() => trackEmailClicked()}

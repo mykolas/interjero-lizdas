@@ -26,8 +26,6 @@
     }
   },
   "include": [
-    "./src",
-    "webpack.config.js",
-    "fetch-data.js"
+    "./src"
   ]
 }
