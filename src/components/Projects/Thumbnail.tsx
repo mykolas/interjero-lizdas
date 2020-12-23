@@ -22,7 +22,6 @@ const Thumbnail: React.FC<IThumbnail> = ({image, onClick}) => {
             }
             alt={image.caption_lt}
             onClick={onClick}
-            loading="lazy"
             lqip={image.asset?.metadata?.lqip}
         />
     )
