@@ -23,7 +23,7 @@ const Contacts: React.SFC = () => (
             onClick={() => trackPhoneClicked()}
             onCopy={() => trackPhoneCopied()}
         >
-            +37066234974
+            +370 662 34974
         </a>
         <SocialMediaLinks />
     </FlexCol>
