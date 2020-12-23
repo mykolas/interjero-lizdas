@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./DelayedLoader.module.scss"
-import {useDelayedVisibility} from "./hooks/useDelayedVisibility"
+import {useDelayedVisibility} from "../hooks/useDelayedVisibility"
 
 interface IDelayedLoader {
     delayInMilliseconds: number

@@ -1,5 +1,5 @@
 import React from "react"
-import {useDelayedVisibility} from "./hooks/useDelayedVisibility"
+import {useDelayedVisibility} from "../hooks/useDelayedVisibility"
 
 const DelayedImage: React.FC<
     React.ImgHTMLAttributes<HTMLImageElement> & {

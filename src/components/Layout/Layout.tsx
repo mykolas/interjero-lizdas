@@ -1,7 +1,7 @@
 import React, {useEffect} from "react"
 import debounce from "lodash.debounce"
 import styles from "./Layout.modules.scss"
-import {FlexRow, FlexCol} from "components/shared/Flex"
+import {FlexRow, FlexCol} from "components/shared/Flex/Flex"
 import Projects from "components/Projects/Projects"
 import About from "components/About/About"
 import Logo from "components/Logo/Logo"

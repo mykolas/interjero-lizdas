@@ -1,7 +1,7 @@
 import React from "react"
 import {NavLink} from "react-router-dom"
 import styles from "./Categories.modules.scss"
-import {FlexCol} from "../shared/Flex"
+import {FlexCol} from "../shared/Flex/Flex"
 import {trackNavigation} from "src/analytics-events/event"
 
 const Categories: React.SFC = () => {

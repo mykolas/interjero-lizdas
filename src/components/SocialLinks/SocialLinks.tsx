@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react"
-import {FlexRow} from "../shared/Flex"
+import {FlexRow} from "../shared/Flex/Flex"
 import styles from "./SocialLinks.modules.scss"
 import {trackSocialLink} from "src/analytics-events/event"
 

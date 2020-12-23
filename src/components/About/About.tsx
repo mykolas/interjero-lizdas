@@ -1,5 +1,5 @@
 import React from "react"
-import {FlexRow} from "../shared/Flex"
+import {FlexRow} from "../shared/Flex/Flex"
 import styles from "./About.modules.scss"
 
 const About: React.SFC = () => (
