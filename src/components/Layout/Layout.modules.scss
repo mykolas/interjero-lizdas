@@ -29,6 +29,7 @@
 }
 
 .contentContainer {
+    position: relative;
     background-color: $content-background-color;
     flex-grow: 1;
     align-content: start;
@@ -59,8 +60,9 @@
         right: 0;
     }
     .contentContainer {
+        position: absolute;
         padding: 10px;
-        margin-top: var(--menuHeight);
+        top: var(--menuHeight);
         z-index: 100;
         overflow: unset;
     }

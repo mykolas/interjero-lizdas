@@ -39,6 +39,7 @@ const SocialMediaLinks: React.SFC = () => (
         <a
             href="https://www.facebook.com/interjerolizdas/"
             target="_blank"
+            rel="noopener"
             onClick={() => trackSocialLink("facebook")}
         >
             <Facebook />
@@ -46,6 +47,7 @@ const SocialMediaLinks: React.SFC = () => (
         <a
             href="https://www.instagram.com/interjerolizdas/"
             target="_blank"
+            rel="noopener"
             onClick={() => trackSocialLink("instagram")}
         >
             <Instagram />

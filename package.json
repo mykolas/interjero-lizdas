@@ -1,6 +1,7 @@
 {
     "scripts": {
         "dev": "webpack-dev-server --mode development --env.development --open --hot --progress",
+        "prod": "webpack-dev-server --mode production --env.development --open --hot --progress",
         "build": "webpack --mode production --env.production --progress",
         "lint": "yarn eslint && yarn stylelint",
         "eslint": "eslint './src/**/*.{ts,tsx}'",

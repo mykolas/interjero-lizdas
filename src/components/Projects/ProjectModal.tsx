@@ -4,6 +4,8 @@ import {Carousel} from "react-responsive-carousel"
 import styles from "./Projects.module.scss"
 import {IImage} from "./types"
 
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+
 const CarouselImageItem = ({
     url,
     alt,

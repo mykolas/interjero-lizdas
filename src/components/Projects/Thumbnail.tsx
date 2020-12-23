@@ -16,10 +16,7 @@ const Thumbnail: React.FC<IThumbnail> = ({image, onClick}) => {
             className={styles.thumbnail}
             width={thumbHeight}
             height={thumbWidth}
-            src={
-                image.asset?.url +
-                `?h=${Math.floor(thumbHeight * 1.5)}&w=${Math.floor(thumbWidth * 1.5)}&fm=webp`
-            }
+            src={`${image.asset?.url}?h=200&w=200&fm=webp&fit=max&q=100`}
             alt={image.caption_lt}
             onClick={onClick}
             lqip={image.asset?.metadata?.lqip}

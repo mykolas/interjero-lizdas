@@ -1,7 +1,6 @@
 import React from "react"
 import Project from "./Project"
 import {RouteProps} from "react-router-dom"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 const getCategoryId = ({location}: RouteProps) =>
     (location.state as {categoryId: string})?.categoryId

@@ -37,17 +37,16 @@ const Project: React.FC<IProject> = ({images, name}) => {
 
     return (
         <>
-            {isCarouselVisible ? (
+            {isCarouselVisible && (
                 <ProjectModal images={images} onClose={() => makeCarouselVisible(false)} />
-            ) : (
-                <Thumbnail
-                    image={images[0]}
-                    onClick={() => {
-                        trackCarousel(name)
-                        makeCarouselVisible(true)
-                    }}
-                />
             )}
+            <Thumbnail
+                image={images[0]}
+                onClick={() => {
+                    trackCarousel(name)
+                    makeCarouselVisible(true)
+                }}
+            />
         </>
     )
 }
