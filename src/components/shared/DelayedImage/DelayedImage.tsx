@@ -1,16 +1,17 @@
 import React from "react"
-import {useDelayedVisibility} from "../hooks/useDelayedVisibility"
+import LazyLoad from "react-lazyload"
 
 const DelayedImage: React.FC<
     React.ImgHTMLAttributes<HTMLImageElement> & {
         src?: string
-        delayInMilliseconds?: number
         lqip: string
     }
-> = ({delayInMilliseconds, lqip, ...props}) => {
-    const isVisible = useDelayedVisibility(delayInMilliseconds)
-
-    return <img {...props} src={isVisible ? props.src : lqip} loading="lazy" />
+> = ({src, lqip, ...props}) => {
+    return (
+        <LazyLoad debounce={0} throttle={0} once placeholder={<img {...props} src={lqip} />}>
+            <img {...props} src={src} />
+        </LazyLoad>
+    )
 }
 
 export default DelayedImage

@@ -1,3 +1,5 @@
+@use '../../App.scss' as *;
+
 .categories {
     flex-grow: 1;
     margin-top: 75px;
@@ -6,6 +8,13 @@
         text-decoration: none;
         cursor: pointer;
         font-size: 16px;
+        margin: 7px 0;
+        color: $link-color;
+
+        &:hover {
+            color: $text-color;
+            opacity: 0.7;
+        }
     }
 
     a.active {
