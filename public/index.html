@@ -134,7 +134,14 @@
             type="image/png"
             href="https://cdn.sanity.io/images/pzhvpnrz/production/7bb23b95980d6f32d90ae2f864ae034b36f4602b-32x32.png"
         />
-        <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-110815687-2"></script>
+        <script
+            defer
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-110815687-2"
+        ></script>
+        <script defer async>
+            window.DATA = <%=htmlWebpackPlugin.options.siteData%>
+        </script>
     </head>
     <body>
         <div id="root"></div>
