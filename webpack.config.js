@@ -4,13 +4,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 const {TsconfigPathsPlugin} = require("tsconfig-paths-webpack-plugin")
-const { fetchData } = require("./fetch-data")
+const {fetchData} = require("./fetch-data")
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 const webpackConfig = async (env, argv) => {
-    
     const config = {
         entry: "./src/index.tsx",
         resolve: {
+            alias: {
+                react: "preact/compat",
+                "react-dom": "preact/compat"
+            },
             extensions: [".ts", ".tsx", ".js"],
             plugins: [new TsconfigPathsPlugin()]
         },
@@ -46,7 +50,7 @@ const webpackConfig = async (env, argv) => {
                 patterns: [
                     {from: "./public/_redirects", to: path.join(__dirname, "/dist")},
                     {from: "./public/robots.txt", to: path.join(__dirname, "/dist")},
-                    {from: "./public/sitemap.xml", to: path.join(__dirname, "/dist")},
+                    {from: "./public/sitemap.xml", to: path.join(__dirname, "/dist")}
                 ]
             }),
             new HtmlWebpackPlugin({
@@ -63,14 +67,14 @@ const webpackConfig = async (env, argv) => {
                     files: "./src/**/*.{ts,tsx,js,jsx}" // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
                 }
             })
+            // new BundleAnalyzerPlugin()
         ],
         devServer: {
             historyApiFallback: true
         }
     }
 
-    return config;
+    return config
 }
-
 
 exports.default = webpackConfig
