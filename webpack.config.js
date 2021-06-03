@@ -54,13 +54,13 @@ const webpackConfig = async (env, argv) => {
                 ]
             }),
             new HtmlWebpackPlugin({
-                template: "./public/index.html",
-                siteData: JSON.stringify(await fetchData())
+                template: "./public/index.html"
             }),
             new webpack.DefinePlugin({
                 "process.env.PRODUCTION": env.production || !env.development,
                 "process.env.NAME": JSON.stringify(require("./package.json").name),
-                "process.env.VERSION": JSON.stringify(require("./package.json").version)
+                "process.env.VERSION": JSON.stringify(require("./package.json").version),
+                "window.DATA": JSON.stringify(await fetchData())
             }),
             new ForkTsCheckerWebpackPlugin({
                 eslint: {
