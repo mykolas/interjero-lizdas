@@ -42,6 +42,7 @@ const Project: React.FC<IProject> = ({images, name}) => {
             )}
             <Thumbnail
                 image={images[0]}
+                name={name}
                 onClick={() => {
                     trackCarousel(name)
                     makeCarouselVisible(true)
